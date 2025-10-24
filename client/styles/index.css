@@ -1,0 +1,328 @@
+.app {
+    height:95vh;
+    width:46.2vh;
+    background-color: #50B3FF;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    overflow:hidden;
+}
+
+html, body {  
+    font-family: 'Open Sans';
+    background-color: black;
+}
+
+.pages {
+    display:flex;
+    width:100vh;
+    box-sizing: border-box;
+}
+
+.page {
+    width: 46.2vh;
+    height: 100vh;
+    transition: all 0.3s;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    flex-shrink:0;
+    margin-top:auto;
+    justify-content:center;
+}
+
+.page-4 {
+    background-color:white;
+}
+
+h1 { 
+    color: white;
+    text-align: center;
+    font-size:5.9vh;
+    user-select: none;
+    margin-bottom:1vh;
+}
+
+#reset-email, #confirm-reset-email, #reset-password, #confirm-reset-password {
+    margin-bottom:3vh;
+}
+
+#send-confirmation-email, #reset-password {
+    margin-top: 5vh;
+}
+
+#reset-title {
+    margin-top:-5vh;
+}
+
+#sent-success {
+    display: block;
+    color:white;
+    font-size:1.8vh;
+    width:40vh;
+    text-align:center;
+}
+
+#landinglogo {
+    width: 32vh;
+    height: 32vh;
+    display: block;
+    margin-top: -2.4vh;
+    margin-bottom:2.4vh;
+}
+
+#login-form {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4vh;
+}
+
+#register-form {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    margin-top:-2vh;
+}
+
+#back-btn, #back-btn-4{
+    width:3.6vh;
+    height:3.6vh;
+    align-self:flex-start;
+    margin-left:3.6vh;
+    margin-top:1vh;
+}
+
+.options {
+    display:flex;
+    justify-content: space-between;
+    gap: 4.8vh;
+}
+
+.remember-me-label {
+    color: white;
+    font-size:1.8vh;
+}
+
+.terms-label {
+    color:white;
+    font-size:1.4vh;
+}
+
+#terms {
+    width:1.6vh;
+    height:1.6vh;
+}
+
+#password-error-container {
+    margin-bottom:3vh;
+}
+
+.terms-box {
+    display:none;
+    transition: all 0.3s;
+    background-color:white;
+    width:35vh;
+    height:50vh;
+    z-index:1000;
+    border-radius:5.8vh;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0.6vh 1.7vh 1vh rgba(0, 0, 0, 0.15), 0.6vh 0.8vh 1.9vh rgba(0, 0, 0, 0.2) inset;
+
+}
+
+.terms-title {
+    font-size:3.5vh;
+    font-weight:bold;
+    margin-left:4vh;
+}
+
+.terms-content {
+    overflow-y:auto;
+    margin: -1vh 2vh;
+    height:30vh;
+
+}
+
+.close-terms {
+    background-color: rgb(64, 64, 129);
+    border:none;
+    color:white;
+    width:12vh;
+    height:5vh;
+    border-radius:1vh;
+    font-size:2.4vh;
+    margin-left:20vh;
+    margin-top:3vh;
+    cursor:pointer;
+}
+
+#tos-link {
+    color:white;
+}
+
+#eula-link {
+    color:white;
+}
+
+#privacy-link {
+    color:white;
+}
+
+#forgot-password {
+    color: white;
+    font-size:1.8vh;
+}
+
+.btn {
+    width: 30.3vh;
+    height: 6.3vh;
+    border-radius: 3.4vh;
+    border: none;
+    background-color: #ffffff;
+    color: #50B3FF;
+    font-size: 3vh;
+    cursor: pointer;
+    box-shadow: 0.4vh 0.4vh 0.8vh rgba(0, 0, 0, 0.49);
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color:rgb(246, 246, 246);
+}
+
+#register { 
+    color: white;
+    text-align: center;
+    font-size: 1.8vh;
+}
+
+#reg-link {
+    color:white;
+}
+
+.input-field, .space-input-field {
+    width: 31.5vh;
+    height: 4.8vh;
+    border-radius: 3.4vh;
+    border: 0.1vh solid #707070;
+    padding: 0 1.8vh;
+    font-size: 1.8vh;
+    box-shadow: 0.6vh 0.9vh 0.8vh rgba(0, 0, 0, 0.16);
+}
+
+.error-message {
+    background-color: rgb(223, 173, 116);
+    padding: 0vh 1.2vh;
+    border-radius:1.8vh;
+    display: none;
+}
+
+.error-text {
+    font-size:1.8vh;
+}
+
+#code-error-container {
+    margin-bottom: 2.4vh;
+}
+
+#enter-code {
+    color:white;
+    font-size:1.8vh;
+    text-align:center;
+    margin: 1vh 0.5vh 0px 0.5vh;
+}
+
+.code-inputs {
+    display: flex;
+    flex-direction: row;
+    gap:2.3vh;
+    margin-top:2.4vh;
+    margin-bottom:4.7vh;
+}
+
+.code{
+    border:none;
+    background-color:transparent;
+    border-bottom: solid white 0.2vh;
+    width: 4.7vh;
+    height:8.3vh;
+    font-size:7.1vh;
+    color:white;
+    text-align:center;
+    outline:none;
+}
+
+#resend-code {
+    color:white;
+    margin-top:3.6vh;
+    font-size:1.9vh;
+}
+
+#resend-link {
+    color:white;
+}
+
+.diet-title {
+    color:#50B3FF;
+    font-size: 4.7vh;
+    text-align:center;
+    margin: 5.3vh 6.9vh;
+    user-select:none;
+}
+
+.diet-list {
+    display: flex;
+    flex-direction:column;
+}
+
+.diet-item {
+    border: 2px solid #9A9A9A;
+    width:33.9vh;
+    height:3.8vh;
+    padding:0.6vh;
+    cursor:pointer;
+    transition:all 0.2s;
+}
+
+.diet-item input[type="checkbox"] {
+    display:none;
+}
+
+.diet-item:has(input[type="checkbox"]:checked) {
+    background: #50B3FF;
+}
+
+.diet-item input[type="checkbox"]:checked ~ .diet-image {
+    background:#50B3FF;
+}
+
+.diet-item:hover, .diet-item:hover ~ .diet-image {
+    background-color:rgb(212, 212, 212);
+}
+
+.diet-image {
+    width: 3.6vh;
+}
+
+.diet-text {
+    font-size: 2.6vh;
+    user-select:none;
+    display:flex;
+    gap:1.2vh;
+}
+
+#dairy-icon {
+    width:2.7vh;
+    margin-right:0.8vh;
+}
+
+#dietary-confirm {
+    align-self: center;
+    margin-top:4.7vh;
+}

@@ -1,0 +1,186 @@
+{
+  "Venues": [
+    {
+      "display-name": "Made In Italy Annandale Pizza & Pasta",
+      "address": "115 Johnston St, Annandale NSW 2038, Australia",
+      "phone-number": "(02) 9571 5700",
+      "cost": "$$",
+      "opening-times": {
+        "Mon": "4:00 - 21:30",
+        "Tues": "4:00 - 21:30",
+        "Wed": "4:00 - 21:30",
+        "Thurs": "4:00 - 21:30",
+        "Fri": "4:00 - 21:30",
+        "Sat": "4:00 - 21:30",
+        "Sun": "4:00 - 21:30"
+      },
+      "lat": -33.881088,
+      "long": 151.1709711,
+      "reviews": [
+        {
+          "name": "Christopher Davey",
+          "stars": 2.5,
+          "content": "Service was mediocre, I'd rather be out chopping lumber."
+        },
+        {
+          "name": "Damien Hadley",
+          "stars": 5,
+          "content": "Best pizza I've ever had, would pay double!"
+        },
+        {
+          "name": "Saxon Arthur",
+          "stars": 2.5,
+          "content": "Pizza was ok, overall forgettable place."
+        }
+      ],
+      "dietary-options": [
+        "Gluten Free Options",
+        "Nut Free",
+        "Fish/Shellfish Free Options",
+        "Soy Free",
+        "Meat Free"
+      ]
+    },
+    {
+      "display-name": "Betel House",
+      "address": "125 Johnston St, Annandale NSW 2038",
+      "phone-number": "0466 962 689",
+      "cost": "$$$",
+      "opening-times": {
+        "Mon": "11:00 - 22:00",
+        "Tues": "11:00 - 22:00",
+        "Wed": "11:00 - 22:00",
+        "Thurs": "11:00 - 22:00",
+        "Fri": "11:00 - 22:00",
+        "Sat": "11:00 - 22:00",
+        "Sun": "11:00 - 22:00"
+      },
+      "lat": -33.88083232140475,
+      "long": 151.1711168067183,
+      "reviews": [
+        {
+          "name": "Sarah Li",
+          "stars": 4.5,
+          "content": "Authentic Thai food and friendly service!"
+        },
+        {
+          "name": "James Fulton",
+          "stars": 4,
+          "content": "A local favourite, definitely recommend the pad thai."
+        },
+        {
+          "name": "Damien Hadley",
+          "stars": 0.5,
+          "content": "I wouldn't even call that food! Don't go here!"
+        },
+        {
+          "name": "Saxon Arthur",
+          "stars": 4.5,
+          "content": "Great gluten free options, enjoyed food and service!"
+        }
+      ],
+      "dietary-options": [
+        "Gluten Free Options",
+        "Nut Free Options"
+      ]
+    },
+    {
+      "display-name": "Fat Fish",
+      "address": "109 Johnston St, Annandale NSW 2038",
+      "phone-number": "(02) 9660 3474",
+      "cost": "$",
+      "opening-times": {
+        "Mon": "8:30 - 21:00",
+        "Tues": "8:30 - 21:00",
+        "Wed": "8:30 - 21:00",
+        "Thurs": "8:30 - 21:00",
+        "Fri": "8:30 - 21:00",
+        "Sat": "8:30 - 21:00",
+        "Sun": "8:30 - 21:00"
+      },
+      "lat": -33.8813252,
+      "long": 151.1709715,
+      "reviews": [
+        {
+          "name": "Tom Henderson",
+          "stars": 4,
+          "content": "Great fish and chips, fresh and crispy!"
+        },
+        {
+          "name": "Nina Roberts",
+          "stars": 4.5,
+          "content": "Good value for money, portions are generous."
+        }
+      ],
+      "dietary-options": []
+    },
+    {
+      "display-name": "Crust Pizza",
+      "address": "113a Booth St, Annandale NSW 2038, Australia",
+      "phone-number": "(02) 9518 4842",
+      "cost": "$$",
+      "opening-times": {
+        "Mon": "11:00 - 22:00",
+        "Tues": "11:00 - 22:00",
+        "Wed": "11:00 - 22:00",
+        "Thurs": "11:00 - 22:00",
+        "Fri": "11:00 - 22:00",
+        "Sat": "11:00 - 22:00",
+        "Sun": "11:00 - 22:00"
+      },
+      "lat": -33.88172149658203,
+      "long": 151.1715545654297,
+      "reviews": [
+        {
+          "name": "Liam Green",
+          "stars": 3.5,
+          "content": "Consistent quality pizzas, great range of toppings."
+        },
+        {
+          "name": "Sophia Chan",
+          "stars": 5,
+          "content": "Love their gluten-free base options!"
+        }
+      ],
+      "dietary-options": [
+        "Gluten Free Options",
+        "Nut Free Options",
+        "Soy Free Options",
+        "Fish/Shellfish Free Options",
+        "Egg Free Options"
+      ]
+    },
+    {
+      "display-name": "Black Toast Cafe",
+      "address": "43 Booth St, Annandale NSW 2038",
+      "phone-number": "(02) 9571 4442",
+      "cost": "$$",
+      "opening-times": {
+        "Mon": "07:00 - 15:00",
+        "Tues": "07:00 - 15:00",
+        "Wed": "07:00 - 15:00",
+        "Thurs": "07:00 - 15:00",
+        "Fri": "07:00 - 15:00",
+        "Sat": "07:00 - 15:00",
+        "Sun": "07:00 - 15:00"
+      },
+      "lat": -33.8822017,
+      "long": 151.1732636,
+      "reviews": [
+        {
+          "name": "Emily Wright",
+          "stars": 4.5,
+          "content": "Best brunch spot in Annandale, great coffee and veggie options."
+        },
+        {
+          "name": "Daniel Brooks",
+          "stars": 4,
+          "content": "Nice atmosphere and friendly staff."
+        }
+      ],
+      "dietary-options": [
+        "Gluten Free Options"
+      ]
+    }
+  ]
+}

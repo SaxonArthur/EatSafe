@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset="UTF-8">
+    <title>EatSafe Login</title>
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+  <body>
+    <div class="app">
+      <div class="pages">        
+
+        <div class="page page-1">
+          <h1 class="title"><b>EatSafe</b></h1>
+          <img id="landinglogo" src="images/LandingIcon.svg" alt="EatSafe Logo">
+          <form id="login-form">
+            <input class="input-field" id="email" type="text" autocomplete="current-email" placeholder="Email" required>
+            <input class="input-field" id="current-password" pattern="(?=.*\W)(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}" autocomplete="current-password" type="password" placeholder="Password" required>
+            <div class="options">
+              <label class="remember-me-label"><input type="checkbox" id="remember-me"> Remember Me</label>
+              <a href="/resetPassword.html" id="forgot-password">Forgot Password?</a>
+            </div>
+            <div class="error-message" id="error-message">
+              <p class="error-text"><b>Incorrect credentials. Please try again.</b></p></p>
+            </div>
+            <button class="btn" type="submit"><b>Log In</b></button>
+          </form>
+          <p id="register">Don't have an account? <a href='#' id="reg-link"><u>Register</u></a></p>
+        </div>
+
+        <div class="page page-2">
+          <input type="image" src="images/BackBtn.svg" alt="Back Button" id="back-btn" onclick="slide('prev')">
+          <h1 class="title2"><b>EatSafe</b></h1>
+          <img id="landinglogo" src="images/LandingIcon.svg" alt="EatSafe Logo">
+          <form id="register-form">
+            <input class="space-input-field" id="display-name" type="text" placeholder="Display Name" maxlength = 20 required>
+            <input class="input-field" id="new-email" type="text" placeholder="Email" required>
+            <input class="input-field" id="new-password" pattern="(?=.*\W)(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}" type="password" placeholder="Password" required>
+            <input class="input-field" id="confirm-password" pattern="(?=.*\W)(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}" type="password" placeholder="Confirm Password" required>
+            <div class="error-message" id="pass-error-container">
+              <p class="error-text" id="register-error-text"><b>Passwords do not match</b></p>
+            </div>
+            <label class="terms-label"><input type="checkbox" id="terms" required> I agree to the <a onclick="openTerms('eula-box')" id="eula-link" href="#">EULA</a>, <a id="tos-link" onclick="openTerms('tos-box')" href="#">Terms of Use</a> and <a id="privacy-link" onclick="openTerms('privacy-box')" href="#">Privacy Policy</a>.</label>
+            <div class="terms-box" id="eula-box">
+              <p class="terms-title">EULA</p>
+              <p class="terms-content">By agreeing to the EULA, you are bound to the terms of this agreement. EatSafe grants you a revocable license to use the app within its intended functionality. You must not copy, modify, sell or lease any part of the app or make any attempt to extract its source code.<br><br></bt>EatSafe provides information based on user generated content and business submissions, and while information is moderated some content may not be accurate, complete or up to date. EatSafe will not be liable for any injury, damages or losses resulting from information provided from this app. By continuing, you acknowledge that you have read and understood this agreement.</p>
+              <button class="close-terms" onclick="closeTerms(this)">Close</button>
+            </div>
+
+            <div class="terms-box" id="tos-box">
+              <p class="terms-title">Terms of Use</p>
+              <p class="terms-content">By agreeing to the Terms of Use, you agree to comply with the following terms. You must only use the app for its intended purpose, to find and review food venues based on dietary information. You agree to not post or spread harmful, false, misleading or inappropriate content or misuse the app.</p>
+              <button class="close-terms" onclick="closeTerms(this)">Close</button>
+            </div>
+
+            <div class="terms-box" id="privacy-box">
+              <p class="terms-title">Pivacy Policy</p>
+              <p class="terms-content">EatSafe collects your name, email address, reviews and location (if allowed). This information is only used to improve the user experience and enhance the app's features and will never be sold to third parties. Information may be shared securely with services such as maps only to support core functionality.</p>
+              <button class="close-terms" onclick="closeTerms(this)">Close</button>
+            </div>
+            
+            <button class="btn" type="submit"><b>Register</b></button>
+          </form>
+        </div>
+
+        <div class="page page-3">
+          <input type="image" src="images/BackBtn.svg" alt="Back Button" id="back-btn" onclick="slide('prev')">
+          <h1 class="title2"><b>EatSafe</b></h1>
+          <img id="landinglogo" src="images/LandingIcon.svg" alt="EatSafe Logo">
+          <p id="enter-code">Enter the verification code sent to example@gmail.com</p>
+          <div class="code-inputs">
+            <input type="tel" pattern="[0-9]*" class="code 1" maxlength="1" required>
+            <input type="tel" pattern="[0-9]*" class="code 2" maxlength="1" required>
+            <input type="tel" pattern="[0-9]*" class="code 3" maxlength="1" required>
+            <input type="tel" pattern="[0-9]*" class="code 4" maxlength="1" required>
+            <input type="tel" pattern="[0-9]*" class="code 5" maxlength="1" required>
+          </div>
+          <div id="code-error-container">
+            <div class="error-message" id="code-error-message">
+              <p class="error-text"><b>Code is incorrect</b></p>
+            </div>
+          </div>
+          <button class="btn" onclick="verifyCode()"><b>Continue</b></button>
+          <p id="resend-code">Didn't get an email? <a href='#' id="resend-link" onclick="resendCode()"><u>Resend code</u></a></p>
+        </div>
+
+        <div class="page page-4">
+          <input type="image" src="images/BackButtonBlue.svg" alt="Back Button" id="back-btn-4" onclick="slide('prev')">
+          <h2 class="diet-title">Build your dietary profile</h2>
+          <form class="diet-list">
+            <label class="diet-item">
+              <input type="checkbox" class="diet-value" value="Nut Free"><span class="diet-text"><img class="diet-image" src="images/NutIcon.svg">Nuts</span>
+            </label>
+            <label class="diet-item">
+              <input type="checkbox" class="diet-value" value="Gluten Free"><span class="diet-text"><img class="diet-image" src="images/WheatIcon.svg">Gluten</span>
+            </label>
+            <label class="diet-item">
+              <input type="checkbox" class="diet-value" value="Dairy Free"><span class="diet-text"><img class="diet-image" id="dairy-icon" src="images/DairyIcon.svg">Dairy</span>
+            </label>
+            <label class="diet-item">
+              <input type="checkbox" class="diet-value" value="Fish/Shellfish Free"><span class="diet-text"><img class="diet-image" src="images/FishIcon.svg">Fish/Shellfish</span>
+            </label>
+            <label class="diet-item">
+              <input type="checkbox" class="diet-value" value="Egg Free"><span class="diet-text"><img class="diet-image" src="images/EggIcon.svg">Egg</span>
+            </label>
+            <label class="diet-item">
+              <input type="checkbox" class="diet-value" value="Soy Free"><span class="diet-text"><img class="diet-image" src="images/SoyIcon.svg">Soy</span>
+            </label>
+            <label class="diet-item">
+              <input type="checkbox" class="diet-value" value="Meat Free"><span class="diet-text"><img class="diet-image" src="images/MeatIcon.svg">Meat</span>
+            </label>
+            <label class="diet-item">
+              <input type="checkbox" class="diet-value" value="Fruits/Veg Free"><span class="diet-text"><img class="diet-image" src="images/FruitsVegIcon.svg">Fruits/Vegetables</span>
+            </label>
+            <button class="btn" id="dietary-confirm" onclick="saveDetails(event)"><b>Continue</b></button>                                                                                                 
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </body>
+  <script src="scripts/login.js"></script>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function(){
+        emailjs.init({
+          publicKey: "Hi0HWBE8NcRItfUpK",
+        });
+    })();
+  </script>
+</html>

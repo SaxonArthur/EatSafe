@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EatSafe</title>
+    <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+    <link rel="stylesheet" href="styles/mainApp.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="app">
+        <div class="pages">
+
+            <div class="page page-1" id="page-1" style="display:flex">
+                <div class="map" id="map">
+
+                </div>
+                <div class="bar" id="search-bar">
+                    <div class="bar-container">
+                        <img id="search-img" src="images/SearchIcon.svg">
+                        <input class="search" id="search-bar-input" type="text" autocomplete="off" placeholder="Search Here"><span></span>
+                        <div id="search-results">
+                            <div id="not-found">
+                                <p id="result-not-found">No results, please try again</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="venue-menu">
+                    <div class="sticky-header">
+                        <div class="horizontal-align">
+                            <h2 id="venue-name">Name of Restaurant</h2>                        
+                            <button class="close-menu" onclick="hideMenu()"><img id="close-menu-img" src="images/Cross.svg"></button>
+                        </div>
+                        <div id="review-summary">
+                            <label>
+                                <div class="horizontal-align">
+                                    <p id="review-average"></p>
+                                    <img id="review-stars" src="#">
+                                    <p id="review-count"></p>•
+                                    <p id="venue-cost"></p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <label id="center-div">
+                        <button class="write-review" id="write-review-popup"><span id="large-plus">+ </span> Write a Review</button>
+                    </label>
+                    <div class="sticky-header-2 for-tabs">
+                        <div id="tabs">
+                            <button class="tab active">Overview</button>
+                            <button class="tab">Reviews</button>
+                            <button class="tab">Dietary Options</button>
+                        </div>
+                    </div>
+                    <div class="scrollable">
+                        <div id="overview" class="tab-content active">
+                            <table>
+                                <tr>
+                                    <th id="address"><img id="address-img" src="images/AddressIcon.svg"></th>
+                                    <td id="address-data">999 Street</td>
+                                </tr>
+                                <tr>
+                                    <th id="phone-number"><img id="phone-number-img" src="images/PhoneIcon.svg"></th>
+                                    <td id="phone-number-data">0400 000 000</td>
+                                </tr>
+                                <tr>
+                                    <th id="opening-times"><img id="opening-times-img" src="images/ClockIcon.svg"></th>
+                                    <td id="opening-times-data">Open times not available</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div id="reviews" class="tab-content"></div>
+
+                        <div id="dietary-options" class="tab-content">
+                            <ul id="options-list">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-menu fixed">
+                    <div class="nav-container">
+                        <button class="nav-button"><img class="nav-map" src="images/NavMapIconActive.svg"></button>
+                        <button class="nav-button" onclick="slide('next', 1, 2)"><img class="nav-reviews" src="images/NavReviewIcon.svg"></button>
+                        <button class="nav-button" onclick="slide('next', 1, 3)"><img class="nav-friends" src="images/NavFriendsIcon.svg"></button>
+                        <button class="nav-button" onclick="slide('next', 1, 4)"><img class="nav-profile" src="images/NavProfileIcon.svg"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page page-2" id="page-2" style="display:flex">
+                <h1 id="review-page-title">Your Reviews</h1>
+                <div id="your-reviews">
+                    <!--<div class="users-review">
+                        <div class="users-review-container">
+                            <div class="horizontal-align">
+                                <p class="users-review-restaurant">123 Street</p>
+                                <img class="users-review-rating" src="#">
+                            </div>
+                            <p class="users-review-content">sdadsadsaaaaaaaad</p>
+                            <input class="users-review-delete" type="image" src="#">
+                        </div>
+                    </div>-->
+                    <p id="no-reviews" style="display:flex">Looks like you have no reviews! Click the button below to write your first one</p>
+                </div>
+                <button class="write-review bigger" onclick="openWriteReview()"><span id="larger-plus">+ </span> Write a Review</button>
+                <div class="nav-menu review-page">
+                    <div class="nav-container">
+                        <button class="nav-button" onclick="slide('prev', 2, 1)"><img class="nav-map" src="images/NavMapIcon.svg"></button>
+                        <button class="nav-button"><img class="nav-reviews" src="images/NavReviewIconActive.svg"></button>
+                        <button class="nav-button" onclick="slide('next', 2, 3)"><img class="nav-friends" src="images/NavFriendsIcon.svg"></button>
+                        <button class="nav-button" onclick="slide('next', 2, 4)"><img class="nav-profile" src="images/NavProfileIcon.svg"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACCOUNTS ON THIS PAGE ARE PLACEHOLDERS, NOT REAL ACCOUNTS -->
+            <div class="page page-3" id="page-3" style="display:flex">
+                <h1 class="page-3-title" id="friends-page-title">Friends</h1>
+                <div id="page-3-container">
+                    <div id="friends-container">
+                        <div class="friend">
+                            <div class="friend-container">
+                                <img class="friend-profile-photo" src="images/AlexProfile.png">
+                                <p class="friend-name">Alex Davey</p>
+                                <button class="friend-remove-button" onclick="removeFriend(this)">Remove</button>
+                            </div>
+                        </div>
+                        <div class="friend">
+                            <div class="friend-container">
+                                <img class="friend-profile-photo" src="images/AdiProfile.jpeg">
+                                <p class="friend-name">Aditya Anand</p>
+                                <button class="friend-remove-button" onclick="removeFriend(this)">Remove</button>
+                            </div>
+                        </div>
+                        <div class="friend" style="display:none">
+                            <div class="friend-container">
+                                <img class="friend-profile-photo" src="images/ClintonProfile.jpeg">
+                                <p class="friend-name">Clinton Ngo</p>
+                                <button class="friend-remove-button" onclick="removeFriend(this)">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="page-3-title" id="friend-requests-title">Requests</h1>
+                    <div id="requests-container">
+                        <div class="request">
+                            <div class="friend-container request-container">
+                                <img class="friend-profile-photo request-profile" src="images/ClintonProfile.jpeg">
+                                <p class="friend-name request-name">Clinton Ngo</p>
+                                <button class="request-accept-button" onclick="addFriend('Clinton Ngo')">Accept</button>
+                                <button class="request-decline-button" onclick="removeFriend(this)">Decline</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="nav-menu friends-page">
+                        <div class="nav-container">
+                            <button class="nav-button" onclick="slide('prev', 3, 1)"><img class="nav-map" src="images/NavMapIcon.svg"></button>
+                            <button class="nav-button" onclick="slide('prev', 3, 2)"><img class="nav-reviews" src="images/NavReviewIcon.svg"></button>
+                            <button class="nav-button"><img class="nav-friends" src="images/NavFriendsIconActive.svg"></button>
+                            <button class="nav-button" onclick="slide('next', 3, 4)"><img class="nav-profile" src="images/NavProfileIcon.svg"></button>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="page page-4" id="page-4" style="display:flex">
+                <div id="user-summary">
+                    <div class="horizontal-align">
+                        <img id="user-profile-picture" src="images/ProfilePic.svg">
+                        <div class="profile-vert-align">
+                            <h1 id="user-display-name"></h1>
+                            <h2 id="user-id"></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer"></div>
+                <div id="dietary-profile">
+                    <h1 id="dietary-profile-title">Your Dietary Profile</h1>
+                    <div id="dietary-options-container">
+                        <!--<div class="dietary-option">
+                            <p class="dietary-option-text">Gluten Free</p>
+                        </div>
+                        <div class="dietary-option">
+                            <p class="dietary-option-text">Gluten Free</p>
+                        </div>
+                        <div class="dietary-option">
+                            <p class="dietary-option-text">Gluten Free</p>
+                        </div>
+                        <div class="dietary-option">
+                            <p class="dietary-option-text">Gluten Free</p>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="spacer"></div>
+
+                <div id="settings">
+                    <div id="settings-container">
+                        <button class="settings-button" id="eula" onclick="showSettings('eula-box')">EULA</button>                        
+                        <button class="settings-button" id="tos" onclick="showSettings('tos-box')">Terms of Use</button>
+                        <button class="settings-button" id="privacy" onclick="showSettings('privacy-box')">Privacy Policy</button>
+                        <button class="settings-button" id="logout" onclick="logout()">Logout</button>
+                        <button class="settings-button" id="delete-account" onclick="deleteAccount()">Delete Account</button>
+                    
+                    </div>
+                </div>
+
+                <div class="terms-box" id="personal-box">
+                <p class="terms-title">Personal Details</p>
+                <p class="terms-content"></p>
+                <button class="close-terms" onclick="closeTerms(this)">Close</button>
+                </div>
+
+                <div class="terms-box" id="eula-box">
+                <p class="terms-title">EULA</p>
+                <p class="terms-content">By agreeing to the EULA, you are bound to the terms of this agreement. EatSafe grants you a revocable license to use the app within its intended functionality. You must not copy, modify, sell or lease any part of the app or make any attempt to extract its source code.<br><br></bt>EatSafe provides information based on user generated content and business submissions, and while information is moderated some content may not be accurate, complete or up to date. EatSafe will not be liable for any injury, damages or losses resulting from information provided from this app. By continuing, you acknowledge that you have read and understood this agreement.</p>
+                <button class="close-terms" onclick="closeTerms(this)">Close</button>
+                </div>
+
+                <div class="terms-box" id="tos-box">
+                <p class="terms-title">Terms of Use</p>
+                <p class="terms-content">By agreeing to the Terms of Use, you agree to comply with the following terms. You must only use the app for its intended purpose, to find and review food venues based on dietary information. You agree to not post or spread harmful, false, misleading or inappropriate content or misuse the app.</p>
+                <button class="close-terms" onclick="closeTerms(this)">Close</button>
+                </div>
+
+                <div class="terms-box" id="privacy-box">
+                <p class="terms-title">Pivacy Policy</p>
+                <p class="terms-content">EatSafe collects your name, email address, reviews and location (if allowed). This information is only used to improve the user experience and enhance the app's features and will never be sold to third parties. Information may be shared securely with services such as maps only to support core functionality.</p>
+                <button class="close-terms" onclick="closeTerms(this)">Close</button>
+                </div>
+
+                <div class="nav-menu profile-page">
+                    <div class="nav-container">
+                        <button class="nav-button" onclick="slide('prev', 4, 1)"><img class="nav-map" src="images/NavMapIcon.svg"></button>
+                        <button class="nav-button" onclick="slide('prev', 4, 2)"><img class="nav-reviews" src="images/NavReviewIcon.svg"></button>
+                        <button class="nav-button" onclick="slide('prev', 4, 3)"><img class="nav-friends" src="images/NavFriendsIcon.svg"></button>
+                        <button class="nav-button"><img class="nav-profile" src="images/NavProfileIconActive.svg"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="write-review-container">
+                <div class="horizontal-align">
+                    <h1 id="write-review-title">Write Review</h1>
+                    <button class="close-menu close-review" onclick="hideWriteReview()"><img id="close-menu-img" src="images/Cross.svg"></button>
+                </div>
+                <p id="write-review-search-title">Search for Restaurant: </p>
+                <input id="write-review-search" type="text" autocomplete="off" placeholder="Search Here"><span></span>
+                <div id="review-search-results">
+                    <!--<div class="review-result">
+                        <p class="review-result-name">123 Street XXXXXX</p>
+                    </div>-->
+                </div>
+                
+                <p id="write-review-stars-title">Enter Stars:</p>
+                <div id="write-review-stars-container">
+                    <input type="checkbox" class="review-stars-input" id="0.5-stars" value=0.5>
+                    <label for="0.5-stars" id="0.5-stars-label"><img class="review-stars-input-image" src="images/writeStars/LeftNoStar.svg" id="0.5-star-image" alt="0.5 Stars"></label>
+                    <input type="checkbox" class="review-stars-input" id="1-stars" value=1>
+                    <label for="1-stars" id="1-stars-label"><img class="review-stars-input-image" src="images/writeStars/RightNoStar.svg" id="1-star-image" alt="1 Stars"></label>
+                    <input type="checkbox" class="review-stars-input" id="1.5-stars" value=1.5>
+                    <label for="1.5-stars" id="1.5-stars-label"><img class="review-stars-input-image" src="images/writeStars/LeftNoStar.svg" id="1.5-star-image" alt="1.5 Stars"></label>
+                    <input type="checkbox" class="review-stars-input" id="2-stars" value=2>
+                    <label for="2-stars" id="2-stars-label"><img class="review-stars-input-image" src="images/writeStars/RightNoStar.svg" id="2-star-image" alt="2 Stars"></label>
+                    <input type="checkbox" class="review-stars-input" id="2.5-stars" value=2.5>
+                    <label for="2.5-stars" id="2.5-stars-label"><img class="review-stars-input-image" src="images/writeStars/LeftNoStar.svg" id="2.5-star-image" alt="2.5 Stars"></label>
+                    <input type="checkbox" class="review-stars-input" id="3-stars" value=3>
+                    <label for="3-stars" id="3-stars-label"><img class="review-stars-input-image" src="images/writeStars/RightNoStar.svg" id="3-star-image" alt="3 Stars"></label>
+                    <input type="checkbox" class="review-stars-input" id="3.5-stars" value=3.5>
+                    <label for="3.5-stars" id="3.5-stars-label"><img class="review-stars-input-image" src="images/writeStars/LeftNoStar.svg" id="3.5-star-image" alt="3.5 Stars"></label>
+                    <input type="checkbox" class="review-stars-input" id="4-stars" value=4>
+                    <label for="4-stars" id="4-stars-label"><img class="review-stars-input-image" src="images/writeStars/RightNoStar.svg" id="4-star-image" alt="4 Stars"></label>
+                    <input type="checkbox" class="review-stars-input" id="4.5-stars" value=4.5>
+                    <label for="4.5-stars" id="4.5-stars-label"><img class="review-stars-input-image" src="images/writeStars/LeftNoStar.svg" id="4.5-star-image" alt="4.5 Stars"></label>
+                    <input type="checkbox" class="review-stars-input" id="5-stars" value=5>
+                    <label for="5-stars" id="5-stars-label"><img class="review-stars-input-image" src="images/writeStars/RightNoStar.svg" id="5-star-image" alt="5 Stars"></label>
+                </div>
+                <h1 id="write-review-content-title">Write review content here:</h1>
+                <textarea type="text" id="write-review-content" maxlength="200" required></textarea>
+                <p id="max-character-warning">*Maximum of 200 characters</p>
+                <button id="submit-review" onclick="submitReview()">Submit</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="scripts/map.js"></script>
+</html>
